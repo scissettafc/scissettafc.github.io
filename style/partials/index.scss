@@ -1,0 +1,141 @@
+.indexTop {
+    margin: 20px 0;
+
+    a {
+        display: inline-block;
+        overflow: hidden;
+    }
+    img {
+        width: 80%;
+        margin: 0 auto;
+    
+        &.largeIndexImg {
+          display: inline-block;
+    
+          @media screen and (max-width: 800px) {
+            display: none;
+          }
+        }
+    
+        &.smallIndexImg {
+          display: none;
+    
+          @media screen and (max-width: 800px) {
+            display: inline-block;
+          }
+        }
+      }
+}
+
+.indexIntro {
+  background-color: $light-grey;
+  overflow: hidden;
+  margin: 30px auto !important;
+  padding: 20px 0;
+
+  h1 {
+    color: $blue;
+    font-weight: 400;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin: 0 auto;
+    max-width: 90%;
+  }
+
+  p {
+    color: $dark-grey;
+    max-width: 90%;
+    margin: 10px auto 0;
+    font-size: 15px;
+  }
+}
+
+.newsSection {
+  margin-bottom: 40px;
+
+  &.newsPage {
+    .newsContainer {
+      width: 100%;
+
+      .newsBox {
+        width: 48%;
+
+        @media screen and (max-width: 800px) {
+          width: 100%;
+
+          &:nth-of-type(2n) {
+            float: left;
+          }
+        }
+
+        &:nth-of-type(2n) {
+          float: right;
+        }
+
+        p {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+
+  .newsContainer {
+    width: 44%;
+    float: left;
+    text-align: left;
+
+    @media screen and (max-width: 700px) {
+      width: 100%;
+    }
+
+    h1 {
+      margin: 0;
+      font-weight: 400;
+      font-size: 24px;
+      color: $blue;
+    }
+
+    .newsBox {
+      text-decoration: none;
+      margin: 20px 0 0;
+      display: inline-block;
+      overflow: hidden;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      .newsImgBox {
+        height: 200px;
+        width: 100%;
+        display: inline-block;
+        background-position: center;
+        background-size: cover;
+      }
+
+      h2 {
+        color: $blue;
+        font-weight: 800;
+        font-size: 18px;
+        margin: 10px 0 0;
+      }
+
+      p {
+        color: $dark-grey;
+        margin: 5px 0 0;
+      }
+    }
+  }
+
+  .twitterContainer {
+    float: right;
+    width: 52%;
+
+    @media screen and (max-width: 700px) {
+      width: 100%;
+      margin-top: 20px;
+    }
+  }
+}

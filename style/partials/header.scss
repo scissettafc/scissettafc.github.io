@@ -1,0 +1,357 @@
+.headerUpperContainer {
+    background-color: $blue;
+    display: inline-block;
+
+    .headerLogo {
+        float: left;
+
+        &.mobile {
+          display: none;
+        }
+
+        @media screen and (max-width: 800px) {
+          display: none;
+
+          &.mobile {
+            display: inline-block;
+          }
+        }
+
+        img {
+            height: 110px;
+            margin: 15px 0;
+        }
+    }
+
+    .upperHeader {
+        text-align: right;
+        padding: 36px 0;
+
+        .sponsorHeader {
+            display: inline-block;
+            text-decoration: none;
+
+            h3 {
+                font-size: 12px;
+                color: $white;
+                font-weight: 600;
+                text-transform: uppercase;
+                margin: 0 0 5px;
+            }
+
+            img {
+                max-height: 45px;
+                max-width: 220px;
+            }
+        }
+    }
+}
+
+/* vars */
+
+$menu_background: $dark-blue;
+$menu_color: #e2e2e2;
+$menu_breakpoint: 820px;
+$menu_toggle_background: black;
+$menu_border: 1px solid rgba(255,255,255,0.1);
+$menu_padding: 15px 20px;
+$menu_icon_padding: 5px 10px;
+
+.headerNav {
+  background-color: $dark-blue;
+  padding: 5px 0;
+  position: relative;
+  z-index: 999;
+
+  a {
+    color: $blue;
+    margin-right: 14px;
+    font-size: 13px;
+    text-transform: uppercase;
+    float: left;
+    transition: all .3s ease-in-out;
+    margin-top: 3px;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+
+  .nav-container {
+    margin: 5px 0;
+  }
+
+}
+
+// NEW STYLING
+
+/* hide show mixin */
+
+@mixin show () {
+  display: block;
+  animation: grow .5s ease-in-out; // optional animation
+}
+
+@mixin hide () {
+  display: none;
+}
+
+/* global  styles */
+
+.menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-top: 30px;
+
+  &.dropdownMargin {
+    
+    @media screen and (max-width: 820px) {
+      margin-top: 5px;
+      z-index: 2;
+    }
+  }
+
+  .fa-chevron-down {
+    font-size: 10px;
+  }
+
+  @media screen and (min-width: 701px) {
+    margin-top: 0;
+  }
+
+  @media screen and (max-width: $menu_breakpoint) {
+    position: absolute;
+    background: darken($dark-blue, 5%);
+    width: 100%;
+    left: 0;
+    text-align: left;
+
+    &.menu-dropdown {
+      position: relative;
+
+      li {
+
+        a {
+          color: $white;
+        }
+      }
+    }
+
+    li {
+      display: inline-block;
+      width: 100%;
+
+      a {
+        color: $blue;
+
+        label {
+
+          i {
+            background: none;
+          }
+        }
+      }
+    }
+
+    &.menu-dropdown {
+      margin-top: 0;
+    }
+  }
+}
+
+.menu,
+.menu a {
+  color: $white;
+  text-decoration: none;
+}
+
+.menu a {
+  display: block;
+  font-weight: 600;
+  margin: 0;
+  white-space: nowrap; // prevent links form going to a new line
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.menu-dropdown,
+.menu input[type="checkbox"] { // hide defaults
+  @include hide;
+}
+
+.menu label:hover {
+  cursor: pointer;
+}
+
+/* narrow styles */
+
+@media screen and (max-width: $menu_breakpoint) {
+  // hide navigation and right icons
+  .menu > ul,
+  .menu-righticon {
+    @include hide;
+  }
+  input[type="checkbox"]:checked + ul {
+    display: inline-block;
+    animation: grow .5s ease-in-out;
+  }
+}
+
+/* large styles */
+
+@media screen and (min-width: $menu_breakpoint) {
+  // hide show navigation button and checkboxes
+  .menu > label,
+  input[type="checkbox"] {
+    @include hide;
+  }
+  .menu a {
+    padding: 0 10px;
+
+  }
+  // align items and style them
+  .menu > ul > li {
+    float: left;
+  }
+  // hover logics
+  .menu-hasdropdown {
+    position: relative;
+    &:hover {
+      > ul {
+        @include show;
+      }
+    }
+  }
+  // dropdown position and style
+  .menu-hasdropdown > ul {
+    position: absolute;
+    top:100%;
+    left: 0;
+    background: $dark-blue;
+    padding: 0;
+  }
+  // flyout position
+  .menu-hasflyout > ul {
+    left: 100%;
+    top:0;
+  }
+  .menu-hasflyout .menu-downicon {
+    @include hide;
+  }
+}
+
+/* look and feel only, not needed for core menu*/
+
+// optional animation for display none/block
+@keyframes grow {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  50% {
+    display: block;
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+html { font-size: 100%; }
+body {
+  font-family: 'Roboto' sans-serif;
+  line-height: 1.5;
+}
+
+.menu-dropdown {
+  width: 200px;
+
+  li {
+    background-color: $dark-blue;
+    display: block;
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid darken($dark-blue, 10%);
+
+    &:last-child {
+      border-bottom: none;
+
+      @media screen and (min-width: $menu_breakpoint) {
+
+        a {
+          padding: 10px 2px 14px;
+        }
+      }
+    }
+  }
+
+  a {
+    padding: 10px 2px;
+    text-transform: none !important;
+    font-size: .9em !important;
+    color: $white;
+    margin-left: 10px;
+    transition: all .3s ease-in-out;
+    display: block;
+    font-weight: 300;
+    float: none;
+
+    &:hover {
+      cursor: pointer !important;
+      color: $blue;
+    }
+  }
+}
+
+/* narrow  */
+@media screen and (max-width: $menu_breakpoint) {
+ .menu > label {
+    display: block;
+    text-align: center;
+    transition: color .3s ease-in-out;
+
+    p {
+      font-weight: 600;
+      text-transform: uppercase;
+      display: inline-block;
+      margin: 0;
+      vertical-align: top;
+    }
+
+    &:hover {
+      cursor: pointer;
+      color: $blue;
+    }
+
+    i {
+      font-size: 24px;
+      margin-left: 10px;
+    }
+
+    h2 {
+      font-family: $font;
+      font-size: 1.2em;
+      font-weight: 400;
+      display: inline-block;
+      margin: 0 5px 0 0;
+    }
+  }
+  .menu a {
+    padding: $menu_padding;
+  }
+  .menu > ul i {
+    float: right;
+    padding: $menu_icon_padding;
+    background: $dark-blue;
+    font-size: 1.3em;
+  }
+  .menu-dropdown  a {
+    background: $dark-blue;
+  }
+  .menu-hasflyout > ul a {
+    background: $dark-blue;
+  }
+}

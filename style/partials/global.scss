@@ -1,0 +1,12 @@
+.fullWidthContainer {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    display: inline-block;
+  
+    .innerBox {
+      width: 95%;
+      display: inline-block;
+      max-width: 1200px;
+    }
+  }

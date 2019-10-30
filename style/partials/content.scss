@@ -1,0 +1,435 @@
+.contentPage {
+    margin-bottom: 20px;
+
+    img {
+      max-width: 100%;
+    }
+
+    h1 {
+        color: $blue;
+        text-align: left;
+        margin: 10px 0 0;
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+
+    p {
+        font-size: 14px;
+        color: $dark-grey;
+        line-height: 20px;
+        margin: 10px 0 0;
+        text-align: left;
+    }
+
+    ul {
+        font-size: 14px;
+        color: $dark-grey;
+        line-height: 20px;
+        margin: 10px 0 0;
+        text-align: left;
+        padding-inline-start: 20px;
+    }
+
+    a {
+        background-color: $blue;
+        padding: 10px 20px;
+        float: left;
+        color: $white;
+        font-family: $font;
+        font-size: 16px;
+        margin: 10px 0;
+        text-decoration: none;
+        font-weight: 600;
+
+        &.inlineref {
+          background: none;
+          padding: 0;
+          color: $blue;
+          margin: 0;
+          font-size: 14px;
+          float: none;
+        }
+    }
+
+    .nineteenFull {
+      max-width: 100%;
+    }
+
+    .photoAlbum {
+      margin: 20px 0 10px;
+
+      img {
+        max-width: 30%;
+        float: left;
+        margin-right: 1%;
+        margin-bottom: 10px;
+
+        @media screen and (max-width: 800px) {
+          max-width: 48%;
+        }
+      }
+    }
+}
+
+.hdaflTop {
+    background-color: $light-grey;
+    padding: 20px 0;
+    overflow: hidden;
+    margin-bottom: 20px;
+
+    img {
+        float: left;
+        margin: 0 20px;
+        max-height: 100px;
+    }
+
+    h1 {
+        color: $dark-blue;
+        text-align: left;
+        margin: 10px 0;
+        line-height: 34px;
+    }
+
+    p {
+        float: left;
+        text-align: left;
+        margin: 0;
+        max-width: 72%;
+        line-height: 1em;
+    }
+}
+
+.leagueBoxes {
+    margin-bottom: 20px;
+
+    div {
+        width: 48%;
+        float: left;
+
+        @media screen and (max-width: 740px) {
+            width: 100%;
+        }
+
+        &:nth-of-type(2n) {
+            float: right;
+        }
+
+        &.leagueTable {
+            table {
+                tr {
+                    td {
+                        width: calc(9% - 6px);
+                        float: left;
+                        margin: 2px 0;
+                        font-family: $font;
+                        font-weight: 600;
+
+                        &:nth-child(2) {
+                            width: calc(37% - 6px);
+                        }
+        
+                        &:last-child {
+                            display: none;
+                        }
+                    }
+
+                    &:first-of-type {
+                        background-color: $blue !important;
+                        td {
+                            background-color: $blue !important;
+                            color: $white !important;
+                            width: calc(9% - 6px);
+                            float: left;
+                            margin: 2px 0;
+        
+                            &:nth-child(2) {
+                                width: calc(37% - 6px);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        table {
+            tr {
+                &.scissettRow {
+                    background-color: lighten($blue, 20%) !important;
+
+                    td {
+                        background-color: lighten($blue, 20%) !important;
+                    }
+                }
+            }
+        }
+    }
+
+    h1 {
+        padding: 5px;
+        width: calc(48% - 10px);
+        color: $white;
+        background-color: $blue;
+        font-size: 20px;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-align: left;
+        float: right;
+        margin: 0;
+
+        @media screen and (max-width: 740px) {
+            width: calc(100% - 10px);
+            margin: 20px 0 0;
+        }
+    }
+}
+
+.leagueFixtures {
+    margin-bottom: 30px;
+    h1 {
+        padding: 5px;
+        width: calc(100% - 10px);
+        color: $white;
+        background-color: $blue;
+        font-size: 20px;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-align: left;
+    }
+
+    table {
+        tr {
+            &.scissettRow {
+                background-color: lighten($blue, 20%) !important;
+
+                td {
+                    background-color: lighten($blue, 20%) !important;
+                }
+            }
+        }
+    }
+}
+
+.filterBox {
+    margin-bottom: 20px;
+    .selectBoxHolder {
+        margin-right: 20px;
+        padding: 5px 5px 5px 8px;
+        border: 1px solid $grey;
+        float: left;
+        position: relative;
+        transition: all .3s ease-in-out;
+        display: inline-block;
+  
+        @media screen and (max-width: 780px) {
+          float: none;
+          width: 40%;
+          margin: 0 10px 10px;
+          text-align: left;
+        }
+  
+        @media screen and (max-width: 600px) {
+          width: 90%;
+          max-width: 90%;
+          margin-left: auto;
+          margin-right: auto;
+          text-align: left;
+          margin-bottom: 10px;
+        }
+  
+        &:hover {
+          background-color: darken($light-grey, 5%);
+        }
+  
+        &.selected {
+          background-color: darken($light-grey, 10%);
+          padding: 11px 5px 0;
+          width: auto;
+          vertical-align: top;
+  
+          @media screen and (max-width: 780px) {
+            float: none;
+            width: 40%;
+            margin: 0px 10px 10px;
+            text-align: left;
+          }
+  
+          @media screen and (max-width: 600px) {
+            width: 90%;
+            margin: 0px 0px 10px;
+          }
+  
+          &:hover {
+            background-color: darken($light-grey, 16%);
+            cursor: pointer;
+          }
+  
+          &:nth-child(2n) {
+            margin: 0;
+  
+            @media screen and (max-width: 790px) {
+              margin: 0px 0px 10px;
+            }
+          }
+        }
+  
+        &:nth-child(2n) {
+          margin: 0;
+  
+          @media screen and (max-width: 790px) {
+            margin: 0px 0px 10px;
+          }
+        }
+  
+        label {
+          font-size: .8em;
+          margin-left: 2px;
+          font-family: $font;
+  
+          @media screen and (max-width: 790px) {
+            display: none;
+          }
+        }
+  
+        select {
+          border: 0;
+          font-size: .9em;
+          font-family: $font;
+          font-weight: 300;
+          height: 30px;
+          border-radius: 0;
+          background-color: transparent;
+          -webkit-appearance: none;
+          -webkit-border-radius: 0px;
+          z-index: 1;
+          position: relative;
+          display: inline-block;
+          padding-right: 24px;
+          text-align: left;
+  
+          @media screen and (max-width: 790px) {
+            width: 100%;
+          }
+  
+          &:hover {
+            cursor: pointer;
+          }
+  
+          &:focus {
+            outline: 0;
+          }
+  
+          option {
+            margin: 0 0 10px 0;
+            font-family: $font;
+            font-weight: 300;
+          }
+        }
+  
+        a {
+          border: 0;
+          font-size: .9em;
+          font-family: $font;
+          color: $dark-grey;
+          font-weight: 300;
+          height: 28px;
+          border-radius: 0;
+          background-color: transparent;
+          -webkit-appearance: none;
+          -webkit-border-radius: 0px;
+          z-index: 1;
+          position: relative;
+          display: inline-block;
+          padding-right: 24px;
+          text-align: left;
+          width: auto;
+  
+          @media screen and (max-width: 790px) {
+            width: 100%;
+          }
+  
+          &:hover {
+            cursor: pointer;
+          }
+  
+          option {
+            margin: 6px 0 0;
+            font-family: $font;
+            font-weight: 300;
+          }
+        }
+  
+        .selectArrow {
+          position: absolute;
+          top: 12px;
+          right: 5px;
+          z-index: 0;
+          font-size: 1em;
+        }
+  
+        .closeCross {
+          position: absolute;
+          top: 13px;
+          right: 5px;
+          z-index: 0;
+          font-size: .9em;
+        }
+      }
+}
+
+.playerContainer {
+    h2 {
+        width: 100%;
+        text-transform: uppercase;
+        font-size: 16px;
+        color: $dark-blue;
+        font-weight: 600;
+        text-align: left;
+        display: block;
+        width: 100%;
+        clear: both;
+    }
+
+    .playerCard {
+        width: 14.6%;
+        float: left;
+        margin-bottom: 2%;
+        margin-right: 2%;
+
+        @media screen and (max-width: 990px) {
+            width: 17.6%;
+        }
+
+        @media screen and (max-width: 800px) {
+            width: 23%;
+        }
+
+        @media screen and (max-width: 600px) {
+            width: 31%;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h4 {
+            color: $white;
+            font-weight: 400;
+            background-color: $blue;
+            margin: 0;
+            padding: 5px 0 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        h5 {
+            color: $white;
+            font-weight: 600;
+            background-color: $blue;
+            margin: 0;
+            padding: 0 0 5px;
+            display: block;
+            font-size: 12px;
+        }
+    }
+}
